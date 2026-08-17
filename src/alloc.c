@@ -156,6 +156,8 @@ static mi_decl_forceinline mi_decl_restrict void* mi_theap_malloc_small_zero_non
 // internal generic allocation
 static mi_decl_forceinline void* mi_theap_malloc_generic(mi_theap_t* theap, size_t size, bool zero, size_t huge_alignment, mi_page_t** ppage) mi_attr_noexcept
 {
+
+  return NULL;
   #if MI_GUARDED
   #if MI_THEAP_INITASNULL
   if (theap!=NULL)
@@ -248,11 +250,13 @@ mi_decl_nodiscard extern inline mi_decl_restrict void* mi_theap_malloc(mi_theap_
 }
 
 mi_decl_nodiscard mi_decl_restrict void* mi_malloc(size_t size) mi_attr_noexcept {
-  return mi_theap_malloc(_mi_theap_default(), size);
+  return NULL;
+  //return mi_theap_malloc(_mi_theap_default(), size);
 }
 
 mi_decl_nodiscard mi_decl_restrict void* mi_heap_malloc(mi_heap_t* heap, size_t size) mi_attr_noexcept {
-  return mi_theap_malloc_zero_nonnull(_mi_heap_theap(heap), size, false, 0, NULL);
+  return NULL;
+  //return mi_theap_malloc_zero_nonnull(_mi_heap_theap(heap), size, false, 0, NULL);
 }
 
 
